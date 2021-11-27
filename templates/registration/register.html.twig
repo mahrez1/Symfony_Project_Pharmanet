@@ -1,0 +1,130 @@
+  
+    <!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Inscription{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        <!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><img src="img/a.jpg" width="80" height="60"></a>
+    <h2 class="title">Pharmanet</h2>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+      <span class="navbar-toggler-icon"></span>
+    </button> 
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+         <li class="nav-item active"> 
+           <a class="nav-link" href="/login" style="color:white">Connexion</a> 
+         </li>
+         <li class="nav-item active">
+          <a class="nav-link" href="/register" style="color:white">Inscription</a>
+        </li>
+      </ul>
+    
+    </div>
+  </div>
+</nav>
+
+ {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}>
+     
+    {{ form_start(registrationForm) }}
+    <h1>Inscription</h1>
+        {{ form_row(registrationForm.email, {'label': 'Email','attr': {'placeholder': 'Email ..'}}) }}
+        {{ form_row(registrationForm.plainPassword, { 
+            label: 'Password','attr': {'placeholder': 'Mot de passe ..'}
+        }) }}
+
+        {{ form_row(registrationForm.username, {'label': 'nom','attr': {'placeholder': 'Nom ..'}}) }}
+        {{ form_row(registrationForm.lastname, {'label': 'prenom','attr': {'placeholder': 'prenom ..'}}) }}
+        {{ form_row(registrationForm.tel, {'label': 'tel','attr': {'placeholder': 'num tel ..'}}) }}
+        {{ form_row(registrationForm.adress, {'label': 'adresse','attr': {'placeholder': 'adresse ..'}}) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+        
+        {{ form_row(registrationForm.captchaCode) }}   
+        {% set formErrors = registrationForm.vars.errors.form.getErrors(true)  %}
+        {% if formErrors | length %}
+        <div class="alert alert-danger">
+        <ul>
+        {% for error in formErrors %}
+        <li>{{error.message}}</li>
+        {% endfor %}
+        </ul>
+        </div>
+        {% endif %}
+      
+        <button type="submit" class="btn btn-lg btn-success">inscrire</button>
+    {{ form_end(registrationForm) }}
+</div>
+<style>
+
+
+body {
+    text-align: center;
+}
+form {
+    margin-top:150px;
+    margin-bottom:80px;
+    display: inline-block;
+}
+ label,h1 { display:inline-block; width:100px; }
+</style>
+
+
+
+<!--- Footer -->
+<footer>
+  <div class="container-fluid  padding">
+    <div class="row text-center pading">
+      <div class="col-md-4">
+        <h3>About</h3>
+        <hr class="light">
+        <p>Ce site Web est une plateforme de commande et d'achat de médicaments en ligne et fait partie de notre projet pidev en tant qu'étudiants d'ESPRIT</p>
+      </div>
+      <div class="col-md-4">
+        <h3>
+          Liens
+        </h3>
+        <hr class="light">
+        <a href="/login" class="nav-link" style="color:white">Connexion</a>
+      <a href="/register" class="nav-link" style="color:white">Inscription</a>
+      </div>
+      <div class="col-md-4">
+        <h3>
+          Info
+        </h3>
+        <hr class="light">
+        <p>
+une plateforme qui presente une collection des pharmacies qui offrent leurs produits en ligne avec livraison</p>
+      </div>
+      <div class="col-12">
+        <hr class="light">
+        <h4>&copy; réalisé par Mahrez Mathlouthi, , ,</h4>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+        {% endblock %}
+        {% block javascripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        
+        {% endblock %}
+    </body>
+</html>

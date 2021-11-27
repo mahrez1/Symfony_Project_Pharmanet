@@ -1,0 +1,248 @@
+
+<html lang="en">
+
+<!-- Mirrored from designreset.com/preview-equation/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 Feb 2019 13:05:13 GMT -->
+<head>
+        {% block stylesheets %}
+ 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link href="{{ asset('admin/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/assets/css/plugins.css') }}" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+    <link href="{{ asset('admin/assets/css/support-chat.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/plugins/charts/chartist/chartist.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('admin/assets/css/default-dashboard/style.css') }}" rel="stylesheet" type="text/css" />    
+    <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->   
+    
+    {% endblock %}
+
+</head>
+<body class="default-sidebar">
+{% block body %}
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+  <div class="container-fluid">
+    <h2 class="title"  style="color:black" >Pharmanet</h2>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+      <span class="navbar-toggler-icon"></span>
+    </button> 
+    <a class="navbar-brand" href="/admin"><img src="{{ asset('img/a.jpg') }}" width="70" height="60"></a>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+       
+         <li class="nav-item active">
+          <a class="nav-link" href="/logout" style="color:black">Deconnecter</a>
+        </li>
+      </ul>
+    
+    </div>
+  </div>
+</nav>
+      
+            
+       
+    </header>
+    <!--  END NAVBAR  -->
+
+    <!--  BEGIN MAIN CONTAINER  -->
+    <div class="main-container" id="container">
+
+        <div class="overlay"></div>
+        <div class="cs-overlay"></div>
+
+        <!--  BEGIN SIDEBAR  -->
+
+        <div class="sidebar-wrapper sidebar-theme">
+            
+            <div id="dismiss" class="d-lg-none"><i class="flaticon-cancel-12"></i></div>
+            
+            <nav id="sidebar">
+
+                <ul class="navbar-nav theme-brand flex-row  d-none d-lg-flex">
+                    <li class="nav-item d-flex">
+                        
+                            <img src="{{ asset('img/f.jpg') }}" width="60" height="60">
+                        </a>
+                        <p class="border-underline"></p>
+                    </li>
+                    <li class="nav-item theme-text">
+                        <a href="#" class="nav-link">  Admin </a>
+                    </li>
+                </ul>
+
+
+                <ul class="list-unstyled menu-categories" id="accordionExample">
+                    <li class="menu">
+                        <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <i class="flaticon-computer-6 ml-3"></i>
+                                <span>Dashboard</span>
+                            </div>
+
+                            
+                        </a>
+                     
+                    </li>
+                    <li class="menu">
+                        <a href="{{ asset('admin/register/pharmacien') }}"   aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                               
+                                <span>Ajouter un pharmaciens</span>
+                            </div>
+                            
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="ecommerce" data-parent="#accordionExample">
+                            <li>
+                                
+                            </li>
+                            <li>
+                              
+                            </li>
+                           
+                           
+                         
+                       
+                        </ul>
+                    </li>
+                    <li class="menu">
+                        <a href=" {{ asset('admin/register/livreur') }}"  aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                               
+                                <span>Ajouter un livreur</span>
+                            </div>
+                            
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="ui-features"  data-parent="#accordionExample">
+                            <li>
+                              
+                            </li>
+                            <li>
+                               
+                            </li>
+                            </ul>
+                 </li>
+                    <li class="menu"> 
+                        <a href=" {{ asset('admin/show/users') }}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                               
+                                <span>Supprimer un utilisateur</span>
+                            </div>
+                           
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="components" data-parent="#accordionExample">
+                            <li>
+                               
+                            </li>
+                            </ul>
+                            </li>       
+                    <li class="menu">
+                        <a href="{{ asset('admin/delete/comments') }}"  aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                               
+                                <span>Supprimer un commentaire</span>
+                                
+                            </div>
+                            
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="forms" data-parent="#accordionExample">
+                            
+                          
+                            <li> 
+                                
+                            </li>
+                            <li>
+                                
+                            </li> 
+                        </ul>
+                    </li>
+
+                     <li class="menu">
+                        <a href="{{ asset('admin/site/info') }}" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                               
+                                <span>Information sur le site</span>
+                            </div>
+                            
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="ecommerce" data-parent="#accordionExample">
+                            <li>
+                                
+                            </li>
+                            <li>
+                              
+                            </li>
+                           
+                           
+                         
+                       
+                        </ul>
+                    </li>
+                   
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <!--  END SIDEBAR  --> 
+         
+        <!--  BEGIN CONTENT PART  -->
+
+ 
+    
+<div class="bs-example" data-example-id="striped-table">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+           <th>Nombre d' utilisateurs</th>
+          <th>Nombre de commentaires</th> 
+           <th>Nombre de likes</th> 
+           <th>Nombre de dislikes</th> 
+        </tr>
+      </thead>
+      <tbody>
+      
+        <tr>
+          <th scope="row"><strong> {{ totalusers }}<strong></th>
+          <td><strong> {{ totalcomment }}<strong></td>
+          <td> <strong> {{ totallikes}}<strong></td>
+          
+          <td>
+          <strong> {{ totaldislikes }}<strong>
+          </td>
+        </tr>
+       
+      </tbody>
+    </table>
+  </div>       
+  <style> 
+  table{margin-top:150px;
+    margin-bottom:80px;
+    display: inline-block;
+    margin-left:250px;}
+  </style>
+
+	    {% endblock %}
+
+
+
+
+                    
+            
+       
+  
+
+</body>
+
+<!-- Mirrored from designreset.com/preview-equation/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 Feb 2019 13:06:33 GMT -->
+</html>
+  

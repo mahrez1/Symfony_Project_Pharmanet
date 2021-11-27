@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<main>
+		<div class="bg_color_2">
+			<div class="container margin_60_35">
+				<div id="register">
+					<h1>Modifier Votre Commentaire!</h1>
+					<div class="row justify-content-center">
+						<div class="col-md-5">
+
+ {{ form_start(form) }}
+<div class="box_form">
+{{ form_row(form.content, {'label': 'content','attr': {'placeholder': 'commentaire ..'}}) }}
+
+ <button type="submit" class="btn btn-primary btn-block">Modifier</button>
+</div>
+{{ form_end(form) }}
+       </div>
+					</div>
+					<!-- /row -->
+				</div>
+				<!-- /register -->
+			</div>
+		</div>
+	</main>
+      
+        {% endblock %} 

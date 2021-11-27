@@ -1,0 +1,104 @@
+
+
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Modifier Profil{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+      
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        <!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><img src="{{ asset('img/a.jpg') }}" width="80" height="60"></a>
+    <h2 class="title">Pharmanet</h2>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+      <span class="navbar-toggler-icon"></span>
+    </button> 
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+         <li class="nav-item active">
+          <a class="nav-link" href="/logout" style="color:white">Deconnecter</a>
+        </li>
+      </ul>
+    
+    </div>
+  </div>
+</nav>
+<main>
+		<div class="bg_color_2">
+			<div class="container margin_60_35">
+				<div id="register">
+					<h1>Modifier Votre Profil!</h1>
+					<div class="row justify-content-center">
+						<div class="col-md-5">
+
+
+ {{ form_start(form) }}
+<div class="box_form">
+{{ form_row(form.tel, {'label': 'changer Numero_telephone','attr': {'placeholder': 'tel ..'}}) }}
+{{ form_row(form.adress, {'label': 'changer Adresse','attr': {'placeholder': 'adresse ..'}}) }}
+ <button type="submit" class="btn btn-success btn-block">Modifier</button>
+</div>
+{{ form_end(form) }}
+      </div>
+					</div>
+					<!-- /row -->
+				</div>
+				<!-- /register -->
+			</div>
+		</div>
+	</main>
+  <footer>
+  <div class="container-fluid  padding">
+    <div class="row text-center pading">
+      <div class="col-md-4">
+        <h3>About</h3>
+        <hr class="light">
+        <p>Ce site Web est une plateforme de commande et d'achat de médicaments en ligne et fait partie de notre projet pidev en tant qu'étudiants d'ESPRIT</p>
+      </div>
+      <div class="col-md-4">
+        <h3>
+          Liens
+        </h3>
+        <hr class="light">
+        <a href="/login" class="nav-link" style="color:white">Connexion</a>
+      <a href="/register" class="nav-link" style="color:white">Inscription</a>
+      </div>
+      <div class="col-md-4">
+        <h3>
+          Info
+        </h3>
+        <hr class="light">
+        <p>
+une plateforme qui presente une collection des pharmacies qui offrent leurs produits en ligne avec livraison</p>
+      </div>
+      <div class="col-12">
+        <hr class="light">
+        <h4>&copy; réalisé par Mahrez Mathlouthi, , ,</h4>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+        {% endblock %}
+        {% block javascripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        
+        {% endblock %}
+    </body>
+</html>         
+       

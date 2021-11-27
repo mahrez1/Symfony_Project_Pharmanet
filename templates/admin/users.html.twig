@@ -1,0 +1,248 @@
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Profil{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link href="{{ asset('admin/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/assets/css/plugins.css') }}" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+    <link href="{{ asset('admin/assets/css/support-chat.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/plugins/charts/chartist/chartist.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('admin/assets/css/default-dashboard/style.css') }}" rel="stylesheet" type="text/css" />    
+      
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        <!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+  <div class="container-fluid">
+    
+    <h2 class="title"  style="color:black" >Pharmanet</h2>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+      <span class="navbar-toggler-icon"></span>
+    </button> 
+       <a class="navbar-brand" href="/admin"><img src="{{ asset('img/a.jpg') }}" width="70" height="60"></a>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+       
+         <li class="nav-item active">
+          <a class="nav-link" href="/logout" style="color:black">Deconnecter</a>
+        </li>
+      </ul>
+    
+    </div>
+  </div>
+</nav>
+ 
+ <div class="main-container" id="container">
+     <div class="overlay"></div>
+        <div class="cs-overlay"></div>
+
+     
+        <!--  BEGIN SIDEBAR  -->
+
+        <div class="sidebar-wrapper sidebar-theme">
+            
+            <div id="dismiss" class="d-lg-none"><i class="flaticon-cancel-12"></i></div>
+            
+            <nav id="sidebar">
+
+                <ul class="navbar-nav theme-brand flex-row  d-none d-lg-flex">
+                    <li class="nav-item d-flex">
+                        
+                            <img src="{{ asset('img/f.jpg') }}" width="60" height="60">
+                        </a>
+                        <p class="border-underline"></p>
+                    </li>
+                    <li class="nav-item theme-text">
+                        <a href="#" class="nav-link">  Admin </a>
+                    </li>
+                </ul>
+
+
+                <ul class="list-unstyled menu-categories" id="accordionExample">
+                    <li class="menu">
+                        <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <i class="flaticon-computer-6 ml-3"></i>
+                                <span>Dashboard</span>
+                            </div>
+
+                            
+                        </a>
+                     
+                    </li>
+                    <li class="menu">
+                        <a href="{{ asset('admin/register/pharmacien') }}"  aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                               
+                                <span>Ajouter un pharmaciens</span>
+                             </div>
+                            
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="ecommerce" data-parent="#accordionExample">
+                            <li>
+                                
+                            </li>
+                            <li>
+                              
+                            </li>
+                           
+                           
+                         
+                       
+                        </ul>
+                    </li>
+                    <li class="menu">
+                        <a href=" {{ asset('admin/register/livreur') }}"  aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                               
+                                <span>Ajouter un livreur</span>
+                            </div>
+                            
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="ui-features"  data-parent="#accordionExample">
+                            <li>
+                              
+                            </li>
+                            <li>
+                               
+                            </li>
+                            </ul>
+                 </li>
+                    <li class="menu"> 
+                        <a href=" {{ asset('admin/show/users') }}"  aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                               
+                                <span>Supprimer un utilisateur</span>
+                            </div>
+                           
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="components" data-parent="#accordionExample">
+                            <li>
+                               
+                            </li>
+                            </ul>
+                            </li>       
+                    <li class="menu">
+                        <a href="{{ asset('admin/delete/comments') }}"  aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                               
+                                <span>Supprimer un commentaire</span>
+                                
+                            </div>
+                            
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="forms" data-parent="#accordionExample">
+                            
+                          
+                            <li>
+                                 
+                            </li>
+                            <li>
+                                
+                            </li> 
+                        </ul>
+                    </li>
+
+   <li class="menu">
+                        <a href="{{ asset('admin/site/info') }}"  aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                               
+                                <span>Information sur le site</span>
+                            </div>
+                            
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="ecommerce" data-parent="#accordionExample">
+                            <li>
+                                
+                            </li>
+                            <li>
+                              
+                            </li>
+                           
+                           
+                         
+                       
+                        </ul>
+                    </li>
+                   
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+        </div> 
+       <style>table{color:black;}</style>
+<div class="bs-example" data-example-id="striped-table">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th><h3>Supprimer un utilisateur</h3></th> 
+           
+        </tr>
+      </thead> 
+      <tbody>
+       {% for user in user %}
+         <tr>
+          <th scope="row">{{user.id}}</th> 
+          <td>{{user.lastname}}</td>
+          <td> {% for role in user.roles %}
+           {% if role == "ROLE_ADMIN"  %}
+           Administrateur/
+           {% elseif  role == "ROLE_LIVREUR" %}
+           Livreur/
+            {% elseif  role == "ROLE_PHARMACIEN" %}
+            Pharmacien/
+             {%  else %}
+             Utilisateur
+             {% endif %}
+          {% endfor %}</td>
+          <td>
+          <a href="/admin/user/delete/{{user.id}}" class="btn btn-danger">Delete</a>
+          </td>
+          
+        </tr>
+       
+      
+         {% endfor %}
+      </tbody>
+    </table>
+    </div>
+  </div>  </body>
+ 
+<!--- Footer -->
+
+
+
+
+
+        {% endblock %}
+        {% block javascripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        
+        {% endblock %}
+    </body>
+</html>

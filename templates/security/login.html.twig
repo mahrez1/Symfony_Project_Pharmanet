@@ -1,0 +1,145 @@
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Connexion!{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        <!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><img src="img/a.jpg" width="80" height="60"></a>
+    <h2 class="title">Pharmanet</h2>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+      <span class="navbar-toggler-icon"></span>
+    </button> 
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+         <li class="nav-item active"> 
+           <a class="nav-link" href="/login" style="color:white">Connexion</a> 
+         </li>
+         <li class="nav-item active">
+          <a class="nav-link" href="/register" style="color:white">Inscription</a>
+        </li>
+      </ul>
+    
+    </div>
+  </div>
+</nav>
+
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+
+    <label for="inputEmail">Email</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus placeholder="email">
+    <label for="inputPassword">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" required placeholder="mot de passe">
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}">
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+
+    <button class="btn btn-lg btn-success" type="submit">
+       Connecter
+    </button>
+    
+</form>
+
+<style>
+body {
+    text-align: center;
+    
+}
+form {
+    margin-top:150px;
+    margin-bottom:80px;
+    
+    display: inline-block;
+}
+ label,h1 { display:inline-block; width:100px; }
+ button {margin-top:10px ;}
+</style>
+
+
+<!--- Footer -->
+<footer>
+  <div class="container-fluid  padding">
+    <div class="row text-center pading">
+      <div class="col-md-4">
+        <h3>A propos de</h3>
+        <hr class="light">
+        <p>Ce site Web est une plateforme de commande et d'achat de médicaments en ligne et fait partie de notre projet pidev en tant qu'étudiants d'ESPRIT</p>
+      </div>
+      <div class="col-md-4">
+        <h3>
+          Liens
+        </h3>
+        <hr class="light">
+        <a href="/login" class="nav-link" style="color:white">Connexion</a>
+      <a href="/register" class="nav-link" style="color:white">Inscription</a>
+      </div>
+      <div class="col-md-4">
+        <h3>
+          Info
+        </h3>
+        <hr class="light">
+        <p>
+une plateforme qui presente une collection des pharmacies qui offrent leurs produits en ligne avec livraison</p>
+      </div>
+      <div class="col-12">
+        <hr class="light">
+        <h4>&copy; réalisé par Mahrez Mathlouthi, , ,</h4>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+        {% endblock %}
+        {% block javascripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        
+        {% endblock %}
+    </body>
+</html>

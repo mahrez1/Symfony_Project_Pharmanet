@@ -1,0 +1,130 @@
+
+{% block title %} {% endblock %}
+
+  {% block stylesheets %}
+  <link rel="stylesheet" href="https://bootswatch.com/4/lumen/bootstrap.min.css">
+  {% endblock %}
+ 
+ 
+{% block body %} 
+
+
+<div class="col-md-12 p-t-10">
+                        <div class="row">
+                              
+                           
+
+                                 <div class="col-md-8 offset-2">
+                                    <div class="card">
+                                        
+                                        <div class="card-body">
+                                            <h4 class="card-title mb-3">{{ mp.nom }}</h4>
+                                            <p class="card-text">
+                                            {{ mp.cover }}
+                                            </p>
+                                            </hr>
+                                            
+                            <div class="container">
+
+
+
+<div class="container">
+
+            <form action="/profil/comment" method="POST" enctype="multipart/form-data"> 
+ <input type="hidden" name="idproduit" value="{{ mp.id }}">
+
+                        <div class="form-group">
+                            <label> <strong>Commenter ici </strong></label>
+                            <input type="text" name="content" class="form-control" formnovalidate>
+                        </div>
+
+                         <div class="form-group">
+                           
+                            <input type="submit" value="Add" class="btn btn-primary" >
+                        </div>
+            </form>
+              <div class="container">   
+  {% for c in mp.comments | reverse %}
+ <p>
+ <div class="comment">
+ <div class="row">
+ <div class="col-12">
+ <strong> {{ c.user.lastname }}<strong><small> Ajouter à</small> <small>{{c.creationdate | date('d/m/y à H:i')}}</small>
+  </div>
+ <div class="col-12">
+ <p>
+    {{ c.content | raw }}
+    
+          <a href="/profil/comments/user/delete/{{c.id}}" class="btn btn-danger">Supprimer</a>
+           <a href="/profil/Modify/comment/{{c.id}}" class="btn btn-danger">Modifier</a>
+           <a href="{{path('likecomment',{'id' : c.id})}}" class="btn btn-link js-like" >
+           {% if app.user and c.isLikedByUser(app.user)  %}
+           <i class="fas fa-thumbs-up"></i>
+           {% else %}
+           <i class="fas fa-thumbs-up"></i>
+            {% endif %}
+         
+           <span class="js-likes">{{c.likes | length}}</span>
+             <span class="js-label">j'aime</span>
+            
+         
+           </a>
+             <a href="{{path('dislikecomment',{'id' : c.id})}}" class="btn btn-link js-dislike" >
+           {% if app.user and c.isdisLikedByUser(app.user)  %}
+ 
+ <i class="far fa-thumbs-down"></i>
+  {% else %}
+           <i class="far fa-thumbs-down"></i>
+           {% endif %}
+         
+           <span class="js-dislikes">{{c.dislike | length}}</span>
+             <span class="js-label">j'aime pas</span>
+            
+         
+           </a>
+          </p>
+</div>
+</div>
+</div>
+  {% endfor %}   
+    </div>
+    </p>
+{% endblock %}
+{% block javascripts %}<script src="https://kit.fontawesome.com/6b226b6dfe.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script >
+ function onClickBtnLike(event){
+   event.preventDefault() ;
+   const url = this.href ;
+   const spanCount =this.querySelector('span.js-likes');
+  
+   axios.get(url).then(function(response){ 
+    
+    spanCount.textContent=response.data.likes ;
+    
+    
+   })
+ }
+ document.querySelectorAll('a.js-like').forEach(function(link){
+   link.addEventListener('click',onClickBtnLike)
+ })
+</script>
+<script >
+ function onClickBtndisLike(event){
+   event.preventDefault() ;
+   const url = this.href ;
+   const spanCount =this.querySelector('span.js-dislikes');
+  
+   axios.get(url).then(function(response){ 
+    
+    spanCount.textContent=response.data.dislikes ;
+ 
+    
+   })
+ }
+ document.querySelectorAll('a.js-dislike').forEach(function(link){
+   link.addEventListener('click',onClickBtndisLike)
+ })
+</script>
+
+{% endblock %}
